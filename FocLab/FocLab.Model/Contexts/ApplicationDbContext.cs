@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FocLab.Model.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace FocLab.Model.Contexts
@@ -36,12 +37,17 @@ namespace FocLab.Model.Contexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<House>().HasIndex(x => x.Address).IsUnique();
+
             base.OnModelCreating(builder);
         }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
-
         }
+
+        public DbSet<WaterCounter> WaterCounters { get; set; }
+
+        public DbSet<House> Houses { get; set; }
     }
 }
