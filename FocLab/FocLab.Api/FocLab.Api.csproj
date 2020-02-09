@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FocLab.Logic\FocLab.Logic.csproj" />
-    <ProjectReference Include="..\FocLab.Model\FocLab.Model.csproj" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Api\" />
+    <ProjectReference Include="..\FocLab.Logic\FocLab.Logic.csproj" />
+    <ProjectReference Include="..\FocLab.Model\FocLab.Model.csproj" />
   </ItemGroup>
 
 </Project>

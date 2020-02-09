@@ -52,6 +52,6 @@ namespace FocLab.Logic.Services
             return new BaseApiResponse(true, successfulMessage);
         }
 
-        public DbContext Context { get; }
+        DbContext Context { get; }
     }
 }
