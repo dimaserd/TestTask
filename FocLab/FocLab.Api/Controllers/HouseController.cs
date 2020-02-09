@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FocLab.Api.Controllers.Api
+namespace FocLab.Controllers.Api
 {
     [Route("Api/House")]
     public class HouseController : Controller
