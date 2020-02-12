@@ -1,4 +1,5 @@
 ﻿using FocLab.Model.Entities;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -33,6 +34,25 @@ namespace FocLab.Model.Contexts
             return new ApplicationDbContext(optionsBuilder.Options);
         }
 
+        /// <summary>
+        /// Получить базу данных в памяти использующую Sqlite 
+        /// </summary>
+        /// <returns></returns>
+        public static ApplicationDbContext CreateForTesting()
+        {
+            var inMemorySqlite = new SqliteConnection("Data Source=:memory:");
+            inMemorySqlite.Open();
+
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseSqlite(inMemorySqlite)
+                .Options;
+
+            var context = new ApplicationDbContext(options);
+            context.Database.EnsureCreatedAsync().GetAwaiter().GetResult();
+            //context.Database.Migrate();
+
+            return context;
+        }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

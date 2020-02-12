@@ -22,7 +22,7 @@ namespace FocLab.Logic.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MainResources {
+    public class MainResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace FocLab.Logic.Resources {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FocLab.Logic.Resources.MainResources", typeof(MainResources).Assembly);
@@ -51,7 +51,7 @@ namespace FocLab.Logic.Resources {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,18 +61,54 @@ namespace FocLab.Logic.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Длина адреса не должна превышать 120 символов.
+        /// </summary>
+        public static string CreateHouseAddressMaxLengthValidationErrorMessage {
+            get {
+                return ResourceManager.GetString("CreateHouseAddressMaxLengthValidationErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Необходимо указать адрес дома.
+        /// </summary>
+        public static string CreateHouseAddressRequiredErrorMessage {
+            get {
+                return ResourceManager.GetString("CreateHouseAddressRequiredErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Необходимо указать заводской номер.
         /// </summary>
-        internal static string FactoryNumberIsRequired {
+        public static string FactoryNumberIsRequired {
             get {
                 return ResourceManager.GetString("FactoryNumberIsRequired", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Дом создан.
+        /// </summary>
+        public static string HouseCreated {
+            get {
+                return ResourceManager.GetString("HouseCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дом с данным адресом уже существует.
+        /// </summary>
+        public static string HouseWithTheSameAdressAlreadyExists {
+            get {
+                return ResourceManager.GetString("HouseWithTheSameAdressAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Модель является null объектом.
         /// </summary>
-        internal static string ModelIsNullObject {
+        public static string ModelIsNullObject {
             get {
                 return ResourceManager.GetString("ModelIsNullObject", resourceCulture);
             }
@@ -81,7 +117,7 @@ namespace FocLab.Logic.Resources {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Модель полностью валидна.
         /// </summary>
-        internal static string ModelIsValid {
+        public static string ModelIsValid {
             get {
                 return ResourceManager.GetString("ModelIsValid", resourceCulture);
             }

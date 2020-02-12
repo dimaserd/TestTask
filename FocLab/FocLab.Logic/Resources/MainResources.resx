@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CreateHouseAddressMaxLengthValidationErrorMessage" xml:space="preserve">
+    <value>Длина адреса не должна превышать 120 символов</value>
+  </data>
+  <data name="CreateHouseAddressRequiredErrorMessage" xml:space="preserve">
+    <value>Необходимо указать адрес дома</value>
+  </data>
   <data name="FactoryNumberIsRequired" xml:space="preserve">
     <value>Необходимо указать заводской номер</value>
+  </data>
+  <data name="HouseCreated" xml:space="preserve">
+    <value>Дом создан</value>
+  </data>
+  <data name="HouseWithTheSameAdressAlreadyExists" xml:space="preserve">
+    <value>Дом с данным адресом уже существует</value>
   </data>
   <data name="ModelIsNullObject" xml:space="preserve">
     <value>Модель является null объектом</value>

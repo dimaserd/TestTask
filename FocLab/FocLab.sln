@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FocLab", "FocLab\FocLab.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FocLab.Api", "FocLab.Api\FocLab.Api.csproj", "{268A3657-7E97-46F1-88A4-6D298175B4BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FocLab.Tests", "FocLab.Tests\FocLab.Tests.csproj", "{7F0FC761-1490-4DD4-8E14-9B8221413AD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{268A3657-7E97-46F1-88A4-6D298175B4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{268A3657-7E97-46F1-88A4-6D298175B4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{268A3657-7E97-46F1-88A4-6D298175B4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F0FC761-1490-4DD4-8E14-9B8221413AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0FC761-1490-4DD4-8E14-9B8221413AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0FC761-1490-4DD4-8E14-9B8221413AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0FC761-1490-4DD4-8E14-9B8221413AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

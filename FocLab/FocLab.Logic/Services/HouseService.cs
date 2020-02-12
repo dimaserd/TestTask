@@ -1,11 +1,11 @@
 ﻿using FocLab.Logic.Models;
+using FocLab.Logic.Resources;
 using FocLab.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FocLab.Logic.Services
@@ -37,7 +37,7 @@ namespace FocLab.Logic.Services
         {
             var validation = Validate(model);
 
-            if(validation.IsSucceeded)
+            if(!validation.IsSucceeded)
             {
                 return validation;
             }
@@ -46,7 +46,7 @@ namespace FocLab.Logic.Services
 
             if (await set.AnyAsync(x => x.Address == model.Address))
             {
-                return new BaseApiResponse(false, "Дом с данным адресом уже существует");
+                return new BaseApiResponse(false, MainResources.HouseWithTheSameAdressAlreadyExists);
             }
 
             set.Add(new House
@@ -54,7 +54,7 @@ namespace FocLab.Logic.Services
                 Address = model.Address
             });
 
-            return await TrySaveChangesAndReturnResultAsync("Дом создан");
+            return await TrySaveChangesAndReturnResultAsync(MainResources.HouseCreated);
         }
     }
 }
