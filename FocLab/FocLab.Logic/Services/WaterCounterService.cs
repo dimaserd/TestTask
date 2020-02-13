@@ -1,6 +1,9 @@
 ﻿using FocLab.Logic.Models;
+using FocLab.Logic.Resources;
 using FocLab.Model.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FocLab.Logic.Services
@@ -9,6 +12,28 @@ namespace FocLab.Logic.Services
     {
         public WaterCounterService(DbContext context) : base(context)
         {
+        }
+
+        /// <summary>
+        /// Рандомно с небольшими преференциями для более маленьких показаний добавлеяет показаний к счетчикам
+        /// </summary>
+        /// <returns></returns>
+        public async Task<BaseApiResponse> AddIndications()
+        {
+            var set = Context.Set<WaterCounter>();
+
+            var list = await set.OrderByDescending(x => x.CurrentIndication).ToListAsync();
+
+            var random = new Random();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].CurrentIndication += random.Next(i, 10);
+            }
+
+            set.UpdateRange(list);
+
+            return await TrySaveChangesAndReturnResultAsync("Ok");
         }
 
         public async Task<BaseApiResponse> CreateWaterCounter(CreateWaterCounter model)
@@ -26,7 +51,13 @@ namespace FocLab.Logic.Services
 
             if(house == null)
             {
-                return new BaseApiResponse(false, "Дом не найден по указанному идентификатору");
+                return new BaseApiResponse(false, MainResources.HouseIsNotFoundByProvidedId);
+            }
+
+            //Если у дома узе есть привязанный счетчик воды
+            if (house.WaterCounterId.HasValue)
+            {
+                return new BaseApiResponse(false, MainResources.HouseAlreadyHasAWaterCounter);
             }
 
             var waterCounter = new WaterCounter

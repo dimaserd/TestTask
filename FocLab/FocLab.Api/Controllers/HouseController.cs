@@ -38,5 +38,11 @@ namespace FocLab.Controllers.Api
         {
             return WaterCounterService.CreateWaterCounter(model);
         }
+
+        [HttpPost("AddIndications")]
+        public Task<BaseApiResponse> AddIndications()
+        {
+            return WaterCounterService.AddIndications();
+        }
     }
 }

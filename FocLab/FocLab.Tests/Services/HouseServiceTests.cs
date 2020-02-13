@@ -4,6 +4,7 @@ using FocLab.Logic.Services;
 using FocLab.Model.Contexts;
 using FocLab.Model.Entities;
 using NUnit.Framework;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FocLab.Tests.Services
@@ -34,6 +35,8 @@ namespace FocLab.Tests.Services
         /// </summary>
         /// <returns></returns>
         [TestCase("address1")]
+        [TestCase("address2")]
+        [TestCase("address3")]
         public async Task CreateHouseWithAddressThatAlreadyExists(string adress)
         {
             var db = ApplicationDbContext.CreateForTesting();
@@ -43,7 +46,6 @@ namespace FocLab.Tests.Services
             {
                 Address = adress
             });
-            //Сохраняем изменения
             db.SaveChanges();
 
             var houseService = new HouseService(db);
@@ -56,6 +58,35 @@ namespace FocLab.Tests.Services
             //Дом не был добавлен и мы получаем текст с нужным сообщением
             Assert.IsFalse(resp.IsSucceeded);
             Assert.AreEqual(resp.Message, MainResources.HouseWithTheSameAdressAlreadyExists);
+        }
+
+        /// <summary>
+        /// Успешное создание дома
+        /// </summary>
+        /// <returns></returns>
+        [TestCase("address1")]
+        [TestCase("address2")]
+        [TestCase("address3")]
+        public async Task CreateHouseSuccessful(string adress)
+        {
+            var db = ApplicationDbContext.CreateForTesting();
+
+            var houseService = new HouseService(db);
+
+            var resp = await houseService.CreateHouse(new CreateHouse
+            {
+                Address = adress
+            });
+
+            //Дом был добавлен и мы получаем текст с нужным сообщением
+            Assert.IsTrue(resp.IsSucceeded);
+            Assert.AreEqual(resp.Message, MainResources.HouseCreated);
+
+            var house = db.Set<House>().FirstOrDefault();
+
+            //Дом был создан с адресом как и указано в модели
+            Assert.IsNotNull(house);
+            Assert.AreEqual(adress, house.Address);
         }
     }
 }

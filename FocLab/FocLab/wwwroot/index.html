@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Дома со счетчиками</title>
+</head>
+<body>
+
+
+    <div class="container">
+
+        <h1>Дома со счетчиками</h1>
+
+        <h4>
+            При обновлении страницы показания счетчиков обновятся
+        </h4>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="btn btn-success" data-toggle="modal" href="#create-house-modal">
+                    Создать дом
+                </div>
+            </div>
+        </div>
+
+        <div style="height:30px">
+
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Адрес
+                        </th>
+                        <th>
+                            Действия
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="houses-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Модальное окно для создания дома -->
+    <div class="modal fade" id="create-house-modal" tabindex="-1" role="dialog" aria-labelledby="create-house-modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Создание дома</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="create-house-address">Адрес дома</label>
+                        <input type="email" class="form-control" id="create-house-address" placeholder="Введите адрес дома">
+                        <small class="form-text text-muted">Адрес дома должен быть уникальным</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button id="create-house-btn" type="button" class="btn btn-primary">Создать дом</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для создания счетчика к дому -->
+    <div class="modal fade" id="create-water-counter-modal" tabindex="-1" role="dialog" aria-labelledby="create-house-modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Создание счетчика к дому</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="create-house-address">Заводской номер</label>
+                        <input type="email" class="form-control" id="create-water-counter-factory-number">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button id="create-water-counter-btn" type="button" class="btn btn-primary">Создать счетчик</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--Мои скрипты-->
+    <script src="src/Requester.js"></script>
+    <script src="src/App.js"></script>
+</body>
+</html>

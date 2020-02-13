@@ -22,6 +22,8 @@ namespace FocLab
             Configuration = configuration;
         }
 
+        const string SpaFolderPath = "wwwroot";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -29,6 +31,11 @@ namespace FocLab
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = SpaFolderPath;
+            });
 
             services.Configure<FormOptions>(options =>
             {
@@ -92,6 +99,11 @@ namespace FocLab
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = SpaFolderPath;
+            });
 
             app.UseEndpoints(endpoints =>
             {

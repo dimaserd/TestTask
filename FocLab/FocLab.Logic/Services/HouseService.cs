@@ -28,9 +28,15 @@ namespace FocLab.Logic.Services
             } : null
         };
 
-        public Task<List<HouseModel>> GetHouses()
+        /// <summary>
+        /// Получить дома упорядоченные по убыванию показаний счетчиков
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<HouseModel>> GetHouses()
         {
-            return Context.Set<House>().Select(HouseSelectExpression).ToListAsync();
+            var result = await Context.Set<House>().Select(HouseSelectExpression).ToListAsync();
+
+            return result.OrderByDescending(x => x.WaterCounter != null? x.WaterCounter.CurrentIndication : 0).ToList();
         }
 
         public async Task<BaseApiResponse> CreateHouse(CreateHouse model)

@@ -126,8 +126,14 @@
   <data name="FactoryNumberIsRequired" xml:space="preserve">
     <value>Необходимо указать заводской номер</value>
   </data>
+  <data name="HouseAlreadyHasAWaterCounter" xml:space="preserve">
+    <value>Дом уже имеет привязанный к нему счетчик воды</value>
+  </data>
   <data name="HouseCreated" xml:space="preserve">
     <value>Дом создан</value>
+  </data>
+  <data name="HouseIsNotFoundByProvidedId" xml:space="preserve">
+    <value>Дом не найден по указанному идентификатору</value>
   </data>
   <data name="HouseWithTheSameAdressAlreadyExists" xml:space="preserve">
     <value>Дом с данным адресом уже существует</value>

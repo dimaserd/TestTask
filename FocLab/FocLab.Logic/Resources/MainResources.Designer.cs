@@ -88,11 +88,29 @@ namespace FocLab.Logic.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Дом уже имеет привязанный к нему счетчик воды.
+        /// </summary>
+        public static string HouseAlreadyHasAWaterCounter {
+            get {
+                return ResourceManager.GetString("HouseAlreadyHasAWaterCounter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Дом создан.
         /// </summary>
         public static string HouseCreated {
             get {
                 return ResourceManager.GetString("HouseCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дом не найден по указанному идентификатору.
+        /// </summary>
+        public static string HouseIsNotFoundByProvidedId {
+            get {
+                return ResourceManager.GetString("HouseIsNotFoundByProvidedId", resourceCulture);
             }
         }
         
